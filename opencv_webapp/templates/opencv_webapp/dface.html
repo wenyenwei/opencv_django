@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+ </head>
+ <body>
+ 
+<!-- image upload start-->
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Upload</button>
+  </form>
+ 
+  {% if post %}
+  <img src="{{ post.document.url }}">
+  <p>File uploaded at: <a href="{{ post.document.url }}">{{ post.document }}</a></p>
+  {% endif %}
+ 
+  <p><a href="{% url 'dface' %}">Return to home</a></p>
+<!-- image upload end -->
+ 
+</body>
+</html>
